@@ -32,7 +32,7 @@ export class HomePage {
       }
       this.weatherProvider.getWeather(this.location.lattitude, this.location.longitude)
       .subscribe(weather => {
-        this.weather = weather.currently;
+        this.weather = weather;
       });
     });
     

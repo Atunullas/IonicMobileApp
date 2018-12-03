@@ -8,24 +8,24 @@
   <ion-grid *ngIf="weather">
     <ion-row>
       <ion-col width-50 offset-25>
-        <h2 class="location">{{weather.temperature}}</h2>
-        <div class="icon">{{weather.icon}}</div>
-        <h3 class="desc">{{weather.summary}}</h3>
-        <h1 class="temp">{{weather.temperature}}</h1>
+        <h2 class="location">{{weather.currently.temperature}}</h2>
+        <div class="icon">{{weather.currently.icon}}</div>
+        <h3 class="desc">{{weather.currently.summary}}</h3>
+        <h1 class="temp">{{weather.currently.temperature}}</h1>
       </ion-col>
       <ion-col width-100>
         <ion-list>
           <ion-item>
-            <strong>Wind Speed:  </strong>{{weather.windSpeed}}
+            <strong>Wind Speed:  </strong>{{weather.currently.windSpeed}}
           </ion-item>
           <ion-item>
-            <strong>Relative Humidity:  </strong>{{weather.humidity}}
+            <strong>Relative Humidity:  </strong>{{weather.currently.humidity}}
           </ion-item>
           <ion-item>
-            <strong>Visibility:  </strong>{{weather.visibility}}
+            <strong>Visibility:  </strong>{{weather.currently.visibility}}
           </ion-item>
           <ion-item>
-            <strong>Dewpoint:  </strong>{{weather.dewPoint}}
+            <strong>Dewpoint:  </strong>{{weather.currently.dewPoint}}
           </ion-item>
         </ion-list>
       </ion-col>
