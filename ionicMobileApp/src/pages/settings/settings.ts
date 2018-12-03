@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the SettingsPage page.
@@ -14,12 +15,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
+  lattitude: string;
+  longitude: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.storage.get('location').then((val) => {
+      if (val != null) {
+        let location = JSON.parse(val);
+        this.lattitude = location.lattitude;
+        this.longitude = location.longitude;
+      } else {
+        this.lattitude = "37.8267";
+        this.longitude = "-122.4233";
+      }
+    })
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
+  }
+
+  saveForm() {
+    let location = {
+      lattitude: this.lattitude,
+      longitude: this.longitude
+    }
+    this.storage.set('location', JSON.stringify(location));
+    this.navCtrl.push(HomePage);
   }
 
 }
