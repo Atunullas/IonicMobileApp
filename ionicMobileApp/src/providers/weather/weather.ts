@@ -11,12 +11,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class WeatherProvider {
 
-  apiKey: "8a40f4e6d4bd0231d4cfc35892e059da";
+  apiKey;
   url;
 
   constructor(public http: HttpClient) {
     console.log('Hello WeatherProvider Provider');
-    this.url = "https://api.darksky.net/forecast/" + "8a40f4e6d4bd0231d4cfc35892e059da";
+    this.apiKey = "8a40f4e6d4bd0231d4cfc35892e059da";
+    this.url = "https://api.darksky.net/forecast/" + this.apiKey;
     console.log('Hello WeatherProvider Provider' + this.url);
   }
 

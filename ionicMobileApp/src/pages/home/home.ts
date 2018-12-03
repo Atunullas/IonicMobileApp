@@ -25,8 +25,9 @@ export class HomePage {
       longitude : "-122.4233"
     }
 
-    this.weatherProvider.getWeather(this.location.lattitude,this.location.longitude).subscribe(weather => {
-      console.log(weather.currently);
+    this.weatherProvider.getWeather(this.location.lattitude,this.location.longitude)
+    .subscribe(weather => {
+     this.weather = weather.currently;
     });
   }
 
