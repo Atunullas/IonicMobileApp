@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
-
+import { Storage } from '@ionic/storage';
 /**
  * Generated class for the SettingsPage page.
  *
@@ -15,17 +15,17 @@ import { HomePage } from '../home/home';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
-  lattitude: string;
+  latitude: string;
   longitude: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
 
     this.storage.get('location').then((val) => {
       if (val != null) {
         let location = JSON.parse(val);
-        this.lattitude = location.lattitude;
-        this.longitude = location.longitude;
+        this.latitude = location.latitude;
+        this.longitude = location.latitude;
       } else {
-        this.lattitude = "37.8267";
+        this.latitude = "37.8267";
         this.longitude = "-122.4233";
       }
     })
@@ -38,7 +38,7 @@ export class SettingsPage {
 
   saveForm() {
     let location = {
-      lattitude: this.lattitude,
+      latitude: this.latitude,
       longitude: this.longitude
     }
     this.storage.set('location', JSON.stringify(location));

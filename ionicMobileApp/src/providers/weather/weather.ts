@@ -21,8 +21,8 @@ export class WeatherProvider {
     console.log('Hello WeatherProvider Provider' + this.url);
   }
 
-  getWeather(lattitude, longitude) {
-    return this.http.get(this.url + "/" + lattitude + "," + longitude)
+  getWeather(latitude, longitude) {
+    return this.http.get(this.url + "/" + latitude + "," + longitude)
       .map((res: Response) => res);
   }
 
