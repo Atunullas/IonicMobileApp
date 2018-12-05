@@ -7,21 +7,21 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingsPage } from '../pages/settings/settings';
-
+import { NearbyPage } from '../pages/nearby/nearby';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { WeatherProvider } from '../providers/weather/weather';
 import { Geolocation } from '@ionic-native/geolocation';
+import { MapsProvider } from '../providers/maps/maps';
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
+    NearbyPage,
     TabsPage,
     SettingsPage
   ],
@@ -36,9 +36,9 @@ import { Geolocation } from '@ionic-native/geolocation';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
     TabsPage,
+    NearbyPage,
     SettingsPage
   ],
   providers: [
@@ -46,7 +46,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     WeatherProvider,
-    Geolocation
+    Geolocation,
+    MapsProvider
   ]
 })
 export class AppModule { }
